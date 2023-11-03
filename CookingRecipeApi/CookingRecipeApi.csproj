@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\foods\thumbnails\" />
     <Folder Include="wwwroot\tasks\images\" />
     <Folder Include="wwwroot\users\avatars\" />
     <Folder Include="wwwroot\users\covers\" />

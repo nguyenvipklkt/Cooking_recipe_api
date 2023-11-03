@@ -13,6 +13,8 @@ namespace CookingRecipeApi.Mapper
             CreateMap<FollowRequest, Follow>();
             CreateMap<CreateFoodTypeRequest, FoodType>();
             CreateMap<CreateFoodStepRequest, FoodStep>();
+            CreateMap<CreateFoodRequest, Food>();
+            CreateMap<CreateIngredientsRequest, IngredientList>();
         }
     }
 }

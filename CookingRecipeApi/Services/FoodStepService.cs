@@ -28,6 +28,12 @@ namespace CookingRecipeApi.Services
         {
             try
             {
+                var checkFoodStep = _foodStepRepository.FindByCondition(row => request.NoStep == row.NoStep && request.FoodId == row.FoodId).FirstOrDefault();
+                if (checkFoodStep != null)
+                {
+                    throw new ValidateError(1001, "Step existed!");
+
+                }
                 var newFoodStep = _mapper.Map<FoodStep>(request);
 
                 _foodStepRepository.Create(newFoodStep);
@@ -44,7 +50,7 @@ namespace CookingRecipeApi.Services
         {
             try
             {
-                return _foodStepRepository.FindOrFail(request);
+                return _foodStepRepository.FindByCondition(row => request.FoodId == row.FoodId);
             }
             catch (Exception ex)
             {
