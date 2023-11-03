@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "s1FSMrGgkIgnzpQaTzpmZVebV6VPaxVcc72lT3Kwruw=",
+  "Source": "CookingRecipeApi",
+  "BasePath": "_content/CookingRecipeApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CookingRecipeApi\\wwwroot",
+      "Source": "CookingRecipeApi",
+      "ContentRoot": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\",
+      "BasePath": "_content/CookingRecipeApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\tasks\\images\\logo hung.png",
+      "SourceId": "CookingRecipeApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\",
+      "BasePath": "_content/CookingRecipeApi",
+      "RelativePath": "tasks/images/logo hung.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\tasks\\images\\logo hung.png"
+    },
+    {
+      "Identity": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg",
+      "SourceId": "CookingRecipeApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\",
+      "BasePath": "_content/CookingRecipeApi",
+      "RelativePath": "users/avatars/2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\avatars\\2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg"
+    },
+    {
+      "Identity": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg",
+      "SourceId": "CookingRecipeApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\",
+      "BasePath": "_content/CookingRecipeApi",
+      "RelativePath": "users/covers/2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg"
+    }
+  ]
+}

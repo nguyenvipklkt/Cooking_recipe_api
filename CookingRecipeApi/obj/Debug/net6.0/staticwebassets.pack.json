@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\tasks\\images\\logo hung.png",
+      "PackagePath": "staticwebassets\\tasks\\images\\logo hung.png"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg",
+      "PackagePath": "staticwebassets\\users\\avatars\\2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg",
+      "PackagePath": "staticwebassets\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CookingRecipeApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.CookingRecipeApi.props",
+      "PackagePath": "build\\CookingRecipeApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.CookingRecipeApi.props",
+      "PackagePath": "buildMultiTargeting\\CookingRecipeApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.CookingRecipeApi.props",
+      "PackagePath": "buildTransitive\\CookingRecipeApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
