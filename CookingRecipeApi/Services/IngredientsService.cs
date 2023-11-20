@@ -42,11 +42,11 @@ namespace CookingRecipeApi.Services
             }
         }
 
-        public object GetIngredientList(GetFoodStepRequest request)
+        public object GetIngredientList(int foodId)
         {
             try
             {
-                return _ingredientListRepository.FindByCondition(row => request.FoodId == row.FoodId);
+                return _ingredientListRepository.FindByCondition(row => foodId == row.FoodId);
             }
             catch (Exception ex)
             {

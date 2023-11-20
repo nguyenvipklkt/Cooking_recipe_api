@@ -37,12 +37,42 @@ namespace CookingRecipeApi.Controllers
         }
 
         [HttpGet]
+        [Route("GetFollowOtherUser")]
+        public MessageData GetFollowOtherUser(int userId)
+        {
+            try
+            {
+                var res = _followService.GetFollowUser(userId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
         [Route("GetFollower")]
         public MessageData GetFollower()
         {
             try
             {
                 var res = _followService.GetFollower(UserId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetFollowerInOther")]
+        public MessageData GetFollowerInOther(int userId)
+        {
+            try
+            {
+                var res = _followService.GetFollower(userId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)
@@ -68,11 +98,11 @@ namespace CookingRecipeApi.Controllers
 
         [HttpDelete]
         [Route("UnFollow")]
-        public MessageData UnFollow(UnFollowRequest request)
+        public MessageData UnFollow(int followingUserId)
         {
             try
             {
-                var res = _followService.UnFollow(UserId, request);
+                var res = _followService.UnFollow(UserId, followingUserId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)

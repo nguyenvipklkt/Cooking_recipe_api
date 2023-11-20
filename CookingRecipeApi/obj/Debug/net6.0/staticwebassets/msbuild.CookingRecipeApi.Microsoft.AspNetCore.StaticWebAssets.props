@@ -1,5 +1,37 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\default\anh-bia.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>default/anh-bia.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\default\anh-bia.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\default\avatar-trang.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>default/avatar-trang.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\default\avatar-trang.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_03_13_34tải xuống.jfif))">
       <SourceType>Package</SourceType>
       <SourceId>CookingRecipeApi</SourceId>
@@ -15,6 +47,246 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_03_13_34tải xuống.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_06_06_47cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202201141412125884.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_06_06_47cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202201141412125884.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_06_06_47cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202201141412125884.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_15_13_59tải xuống.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_15_13_59tải xuống.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_15_13_59tải xuống.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_11cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_11cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_11cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_15cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_15cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_15cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_18cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_18cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_18cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_23cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_23cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_23cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_25cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_25cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_25cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_28cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_28cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_28cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_29cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_29cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_29cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_30cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_30cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_30cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_31cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_31cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_31cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_41cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_41cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_41cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_44cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_44cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_44cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_45cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_14_45cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_14_45cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_15_23tải xuống (1).jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>foods/thumbnails/2023_11_19_15_23tải xuống (1).jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\foods\thumbnails\2023_11_19_15_23tải xuống (1).jfif))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\tasks\images\logo hung.png))">
       <SourceType>Package</SourceType>
@@ -48,6 +320,70 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_04_05_57akskas))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/avatars/2023_11_04_05_57akskas</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_04_05_57akskas))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_04_06_02142569739_101363188639650_3063431314760930775_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/avatars/2023_11_04_06_02142569739_101363188639650_3063431314760930775_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_04_06_02142569739_101363188639650_3063431314760930775_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_04_06_10397217812_691333886309241_9013267120817285807_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/avatars/2023_11_04_06_10397217812_691333886309241_9013267120817285807_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_04_06_10397217812_691333886309241_9013267120817285807_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_19_15_28images.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/avatars/2023_11_19_15_28images.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\avatars\2023_11_19_15_28images.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CookingRecipeApi</SourceId>
@@ -63,6 +399,70 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_04_05_57Nameksbd))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/covers/2023_11_04_05_57Nameksbd</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_04_05_57Nameksbd))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_04_06_02397217812_691333886309241_9013267120817285807_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/covers/2023_11_04_06_02397217812_691333886309241_9013267120817285807_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_04_06_02397217812_691333886309241_9013267120817285807_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_04_06_10142569739_101363188639650_3063431314760930775_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/covers/2023_11_04_06_10142569739_101363188639650_3063431314760930775_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_04_06_10142569739_101363188639650_3063431314760930775_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_19_15_28images.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookingRecipeApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookingRecipeApi</BasePath>
+      <RelativePath>users/covers/2023_11_19_15_28images.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\users\covers\2023_11_19_15_28images.jfif))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

@@ -63,6 +63,22 @@ namespace CookingRecipeApi.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetUserInf")]
+
+        public MessageData GetUserInf(int userId) 
+        {
+            try
+            {
+                var res = _accountService.GetUserInf(userId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

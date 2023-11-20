@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F8psqLfHNpuwMrwPjycnHWv0TK1KVLj4CZk/ehEi5H+u6tqcvhOk3YVWE3SqFaR5rb2+brrZq/9bFEviXus5mg==",
+  "dgSpecHash": "G9mQ5yPzbBL+g2RB3rBC+ISGQzDWxq2j1ENmz6BTUwxxhZOXS3fT2rJ8AzFOt6pmj8iIrrF32eU3m/igPXmt1w==",
   "success": true,
   "projectFilePath": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\CookingRecipeApi.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\nettopologysuite\\2.3.0\\nettopologysuite.2.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\nettopologysuite.io.sqlserverbytes\\2.1.0\\nettopologysuite.io.sqlserverbytes.2.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\npgsql\\6.0.8\\npgsql.6.0.8.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.8\\npgsql.entityframeworkcore.postgresql.6.0.8.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.2\\pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",

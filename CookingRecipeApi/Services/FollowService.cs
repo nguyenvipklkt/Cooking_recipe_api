@@ -84,9 +84,9 @@ namespace CookingRecipeApi.Services
             }
         }
 
-        public object UnFollow(int userId, UnFollowRequest request)
+        public object UnFollow(int userId, int followingUserId)
         {
-            var follow = _followRepository.FindByCondition(row => request.FollowingUserId == row.FollowingUserId && userId == row.UserId).FirstOrDefault();
+            var follow = _followRepository.FindByCondition(row => followingUserId == row.FollowingUserId && userId == row.UserId).FirstOrDefault();
             if (follow == null)
             {
                 throw new ValidateError(1001, "Follow dont exist!");

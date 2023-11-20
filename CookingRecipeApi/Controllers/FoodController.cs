@@ -38,12 +38,72 @@ namespace CookingRecipeApi.Controllers
         }
 
         [HttpGet]
+        [Route("GetFoodListWithUser")]
+        public MessageData GetFoodListWithUser()
+        {
+            try
+            {
+                var res = _foodService.GetFoodListWithUser(UserId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetFoodListWithOtherUser")]
+        public MessageData GetFoodListWithOtherUser(int userId)
+        {
+            try
+            {
+                var res = _foodService.GetFoodListWithUser(userId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
         [Route("GetFoodList")]
         public MessageData GetFoodList()
         {
             try
             {
-                var res = _foodService.GetFoodList(UserId);
+                var res = _foodService.GetFoodList();
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetFood")]
+        public MessageData GetFood(int foodId)
+        {
+            try
+            {
+                var res = _foodService.GetFood(foodId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetUserInFood")]
+        public MessageData GetUserInFood(int foodId)
+        {
+            try
+            {
+                var res = _foodService.GetUserInFood(foodId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)

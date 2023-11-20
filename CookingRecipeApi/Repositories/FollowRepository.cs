@@ -15,6 +15,6 @@ namespace CookingRecipeApi.Repositories
         {
             this._mapper = mapper;
         }
- 
+
     }
 }

@@ -1,8 +1,76 @@
 {
   "Files": [
     {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\default\\anh-bia.webp",
+      "PackagePath": "staticwebassets\\default\\anh-bia.webp"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\default\\avatar-trang.jpg",
+      "PackagePath": "staticwebassets\\default\\avatar-trang.jpg"
+    },
+    {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_03_13_34tải xuống.jfif",
       "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_03_13_34tải xuống.jfif"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_06_06_47cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202201141412125884.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_06_06_47cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202201141412125884.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_15_13_59tải xuống.jfif",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_15_13_59tải xuống.jfif"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_11cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_11cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_15cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_15cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_18cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_18cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_23cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_23cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_25cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_25cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_28cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_28cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_29cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_29cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_30cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_30cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_31cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_31cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_41cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_41cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_44cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_44cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_14_45cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_14_45cach-nau-sup-ga-ngo-non-thom-ngon-bo-duong-202108051740022206.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_11_19_15_23tải xuống (1).jfif",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_19_15_23tải xuống (1).jfif"
     },
     {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\tasks\\images\\logo hung.png",
@@ -13,8 +81,40 @@
       "PackagePath": "staticwebassets\\users\\avatars\\2023_11_01_14_04396041111_689740693135227_2736437335729676433_n.jpg"
     },
     {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_11_04_05_57akskas",
+      "PackagePath": "staticwebassets\\users\\avatars"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_11_04_06_02142569739_101363188639650_3063431314760930775_n.jpg",
+      "PackagePath": "staticwebassets\\users\\avatars\\2023_11_04_06_02142569739_101363188639650_3063431314760930775_n.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_11_04_06_10397217812_691333886309241_9013267120817285807_n.jpg",
+      "PackagePath": "staticwebassets\\users\\avatars\\2023_11_04_06_10397217812_691333886309241_9013267120817285807_n.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_11_19_15_28images.jfif",
+      "PackagePath": "staticwebassets\\users\\avatars\\2023_11_19_15_28images.jfif"
+    },
+    {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg",
       "PackagePath": "staticwebassets\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_04_05_57Nameksbd",
+      "PackagePath": "staticwebassets\\users\\covers"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_04_06_02397217812_691333886309241_9013267120817285807_n.jpg",
+      "PackagePath": "staticwebassets\\users\\covers\\2023_11_04_06_02397217812_691333886309241_9013267120817285807_n.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_04_06_10142569739_101363188639650_3063431314760930775_n.jpg",
+      "PackagePath": "staticwebassets\\users\\covers\\2023_11_04_06_10142569739_101363188639650_3063431314760930775_n.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_19_15_28images.jfif",
+      "PackagePath": "staticwebassets\\users\\covers\\2023_11_19_15_28images.jfif"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CookingRecipeApi.Microsoft.AspNetCore.StaticWebAssets.props",

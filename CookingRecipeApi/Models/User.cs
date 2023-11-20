@@ -1,7 +1,9 @@
-﻿using NetTopologySuite.Operation.OverlayNG;
+﻿using Microsoft.EntityFrameworkCore;
+using NetTopologySuite.Operation.OverlayNG;
 
 namespace CookingRecipeApi.Models
 {
+    [Index(nameof(Email), nameof(Password))]
     public class User : BaseModel
     {
         public int Id { get; set; }

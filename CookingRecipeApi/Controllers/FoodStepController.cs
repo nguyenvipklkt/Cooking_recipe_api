@@ -37,13 +37,13 @@ namespace CookingRecipeApi.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("GetFoodStepList")]
-        public MessageData GetFoodStepList(GetFoodStepRequest request)
+        public MessageData GetFoodStepList(int FoodId)
         {
             try
             {
-                var res = _foodStepService.GetFoodStepList(request);
+                var res = _foodStepService.GetFoodStepList(FoodId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)

@@ -15,6 +15,7 @@ namespace CookingRecipeApi.Mapper
             CreateMap<CreateFoodStepRequest, FoodStep>();
             CreateMap<CreateFoodRequest, Food>();
             CreateMap<CreateIngredientsRequest, IngredientList>();
+            CreateMap<CreateCommentRequest, Review>();
         }
     }
 }

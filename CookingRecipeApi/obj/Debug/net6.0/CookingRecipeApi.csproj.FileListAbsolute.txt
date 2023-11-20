@@ -95,3 +95,4 @@ C:\Project\cooking_recipe\cooking_recipe_api\CookingRecipeApi\obj\Debug\net6.0\r
 C:\Project\cooking_recipe\cooking_recipe_api\CookingRecipeApi\obj\Debug\net6.0\CookingRecipeApi.pdb
 C:\Project\cooking_recipe\cooking_recipe_api\CookingRecipeApi\obj\Debug\net6.0\CookingRecipeApi.genruntimeconfig.cache
 C:\Project\cooking_recipe\cooking_recipe_api\CookingRecipeApi\obj\Debug\net6.0\ref\CookingRecipeApi.dll
+C:\Project\cooking_recipe\cooking_recipe_api\CookingRecipeApi\bin\Debug\net6.0\Newtonsoft.Json.dll

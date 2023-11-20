@@ -107,5 +107,22 @@ namespace CookingRecipeApi.Services
                 throw ex;
             }
         }
+
+        public object GetUserInf(int userId)
+        {
+            try
+            {
+                var user = _userRepository.FindByCondition(row => userId == row.Id).FirstOrDefault();
+                user.Password = null;
+                user.OTP = null;
+                user.UpdatedDate = null;
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

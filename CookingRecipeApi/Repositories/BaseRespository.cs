@@ -283,11 +283,24 @@ namespace CookingRecipeApi.Respositories
             }
         }
 
+        public bool AddRange(List<T> range)
+        {
+            try
+            {
+                Model.AddRange(range);
+                this.SaveChange();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //public T GetEntity(object id)
         //{
         //    var model  = Model.Find(id);
         //    return model;
         //}
-        
+
     }
 }
