@@ -5,6 +5,7 @@ using CookingRecipeApi.Database;
 using CookingRecipeApi.Models;
 using CookingRecipeApi.Repositories;
 using CookingRecipeApi.Request;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -16,6 +17,7 @@ namespace CookingRecipeApi.Services
         private readonly FoodRepository _foodRepository;
         private readonly FoodStepRepository _foodStepRepository;
         private readonly IngredientListRepository _ingredientListRepository;
+        private readonly ViewRepository _viewRepository;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHost;
@@ -25,6 +27,7 @@ namespace CookingRecipeApi.Services
             _foodStepRepository = new FoodStepRepository(apiOption, databaseContext, mapper);
             _foodRepository = new FoodRepository(apiOption, databaseContext, mapper);
             _ingredientListRepository = new IngredientListRepository(apiOption, databaseContext, mapper);
+            _viewRepository = new ViewRepository(apiOption, databaseContext, mapper);
             _apiOption = apiOption;
             _mapper = mapper;
             _webHost = webHost;
@@ -48,10 +51,25 @@ namespace CookingRecipeApi.Services
                     }
                     newFood.Thumbnails = "foods/thumbnails/" + date + request.Image.FileName;
                 }
+
+                if (request.Video != null)
+                {
+                    var date = DateTime.UtcNow.ToString("yyyy_MM_dd_HH_mm");
+                    using (FileStream fileStream = File.Create(_webHost.WebRootPath + "\\foods\\videos\\" + date + request.Video.FileName))
+                    {
+                        request.Video.CopyTo(fileStream);
+                        fileStream.Flush();
+                    }
+                    newFood.Video = "foods/videos/" + date + request.Video.FileName;
+                }
                 newFood.FoodTypeId = request.FoodTypeId;
                 newFood.UserId = userId;
                 newFood.Name = request.Name;
                 newFood.Title = request.Title;
+                newFood.PreparationTime = request.PreparationTime;
+                newFood.CookingTime =  request.CookingTime;
+                newFood.Meal = request.Meal;
+                newFood.LevelOfDifficult = request.LevelOfDifficult;
                 newFood.AccessRange = 1;
                 _foodRepository.Create(newFood);
 
@@ -116,9 +134,23 @@ namespace CookingRecipeApi.Services
                 }
                 food.Thumbnails = "foods/thumbnails/" + date + request.Image.FileName;
             }
+            if (request.Video != null && request.Video.FileName != food.Video)
+            {
+                var date = DateTime.UtcNow.ToString("yyyy_MM_dd_HH_mm");
+                using (FileStream fileStream = File.Create(_webHost.WebRootPath + "\\foods\\videos\\" + date + request.Video.FileName))
+                {
+                    request.Video.CopyTo(fileStream);
+                    fileStream.Flush();
+                }
+                food.Video = "foods/videos/" + date + request.Video.FileName;
+            }
             food.Name = request.Name;
             food.Title = request.Title;
             food.FoodTypeId = request.FoodTypeId;
+            food.PreparationTime = request.PreparationTime;
+            food.CookingTime = request.CookingTime;
+            food.Meal = request.Meal;
+            food.LevelOfDifficult = request.LevelOfDifficult;
             food.UpdatedDate = DateTime.UtcNow;
             _foodRepository.UpdateByEntity(food);
             _foodRepository.SaveChange();
@@ -196,6 +228,62 @@ namespace CookingRecipeApi.Services
             }
             _foodStepRepository.SaveChange();
             return true;
+        }
+
+        public object addView(int userId, int foodId)
+        {
+            var checkView = _viewRepository.FindByCondition(row => userId == row.UserId && foodId == row.FoodId).FirstOrDefault();
+            if (checkView != null)
+            {
+                throw new Exception("View existed !");
+            }
+            var view = new View();
+            view.UserId = userId;
+            view.FoodId = foodId;
+            view.CreatedDate = _foodRepository.FindByCondition(row => foodId == row.Id).FirstOrDefault().CreatedDate;
+            _viewRepository.Create(view);
+            _viewRepository.SaveChange();
+            return view;
+        }
+
+        public object UpdateView(int userId, int foodId)
+        {
+            try
+            {
+                var view = _viewRepository.FindByCondition(row => userId == row.UserId && foodId == row.FoodId).FirstOrDefault();
+                if (view == null) 
+                {
+                    throw new Exception("View does not exist !");
+                }
+                view.CreatedDate = DateTime.Now;
+                _viewRepository.UpdateByEntity(view);
+                _viewRepository.SaveChange();
+                return view;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public object GetStoryHighestView()
+        {
+            try
+            {
+                var viewListInt = _viewRepository.GetHighestViews();
+                List<Food> storyList = new List<Food>();
+                for (int i = 0; i < viewListInt.Count; i ++)
+                {
+                    var story = _foodRepository.FindByCondition(row => viewListInt[i] == row.Id).FirstOrDefault();
+                    storyList.Add(story);
+                }
+                return storyList;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

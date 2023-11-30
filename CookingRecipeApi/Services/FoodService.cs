@@ -8,12 +8,15 @@ using CookingRecipeApi.Repositories;
 using CookingRecipeApi.Request;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CookingRecipeApi.Services
 {
     public class FoodService
     {
         private readonly FoodRepository _foodRepository;
+        private readonly FollowRepository _followRepository;
+        private readonly KeySearchRepository _keySearchRepository;
         private readonly UserRepository _userRepository;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
@@ -23,6 +26,8 @@ namespace CookingRecipeApi.Services
         {
             _foodRepository = new FoodRepository(apiOption, databaseContext, mapper);
             _userRepository = new UserRepository(apiOption, databaseContext, mapper);
+            _followRepository = new FollowRepository(apiOption, databaseContext, mapper);
+            _keySearchRepository = new KeySearchRepository(apiOption, databaseContext, mapper);
             _apiOption = apiOption;
             _mapper = mapper;
             _webHost = webHost;
@@ -43,6 +48,17 @@ namespace CookingRecipeApi.Services
                         fileStream.Flush();
                     }
                     newFood.Thumbnails = "foods/thumbnails/" + date + request.Thumbnails.FileName;
+                }
+
+                if (request.Video != null)
+                {
+                    var date = DateTime.UtcNow.ToString("yyyy_MM_dd_HH_mm");
+                    using (FileStream fileStream = File.Create(_webHost.WebRootPath + "\\foods\\videos\\" + date + request.Video.FileName))
+                    {
+                        request.Video.CopyTo(fileStream);
+                        fileStream.Flush();
+                    }
+                    newFood.Video = "foods/videos/" + date + request.Video.FileName;
                 }
 
                 newFood.UserId = userId;
@@ -88,6 +104,11 @@ namespace CookingRecipeApi.Services
                         ViewNumber = food[i].ViewNumber,
                         LikeNumber = food[i].LikeNumber,
                         ShareNumber = food[i].ShareNumber,
+                        CookingTime = food[i].CookingTime,
+                        PreparationTime = food[i].PreparationTime,
+                        Meal = food[i].Meal,
+                        LevelOfDifficult = food[i].LevelOfDifficult,
+                        Video = food[i].Video,
                         AuthorFirstName = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().FirstName,
                         AuthorLastName = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().LastName,
                         AuthorAvatar = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().Avatar,
@@ -135,6 +156,203 @@ namespace CookingRecipeApi.Services
             {
                 throw ex;
             }
+        }
+
+        public object GetFoodByFollowingUser(int userId)
+        {
+            try
+            {
+                var follow = _followRepository.FindByCondition(row => userId == row.UserId).ToList();
+                if (follow == null)
+                {
+                    return "No follow, follow other people to receive new post!";
+                }
+
+                List<StoryDto> storyList = new List<StoryDto>();
+
+                for (int i = 0; i < follow.Count; i ++)
+                {
+                    var food = _foodRepository.FindByCondition(row => follow[i].FollowingUserId == row.UserId).ToList();
+                    for (int j = 0; j < food.Count; j ++)
+                    {
+                        var user = _userRepository.FindByCondition(a => food[j].UserId == a.Id).FirstOrDefault();
+                        var storyDto = new StoryDto 
+                        {
+                            Id = food[j].Id,
+                            UserId = food[j].UserId,
+                            FoodTypeId = food[j].Id,
+                            Name = food[j].Name,
+                            Title = food[j].Title,
+                            Thumbnails = food[j].Thumbnails,
+                            ViewNumber = food[j].ViewNumber,
+                            LikeNumber  = food[j].LikeNumber,
+                            ShareNumber = food[j].ShareNumber,
+                            CookingTime = food[j].CookingTime,
+                            PreparationTime = food[j].PreparationTime,
+                            Meal = food[j].Meal,
+                            LevelOfDifficult = food[j].LevelOfDifficult,
+                            Video = food[j].Video,
+                            AuthorFirstName = user.FirstName,
+                            AuthorLastName = user.LastName,
+                            AuthorAvatar = user.Avatar,
+                            CreatedDate = food[j].CreatedDate,
+                            
+                        };
+                        storyList.Add(storyDto);
+                    }
+                }
+                storyList.Sort((food1, food2) => food2.CreatedDate.CompareTo(food1.CreatedDate));
+                return storyList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public object GetFoodFromFoodType(int foodTypeId)
+        {
+            try
+            {
+                var foodList = _foodRepository.FindByCondition(row => foodTypeId == row.FoodTypeId).ToList();
+                List<StoryDto> stories = new List<StoryDto>();
+                for (int i = 0; i < foodList.Count; i++)
+                {
+                    var user = _userRepository.FindByCondition(a => foodList[i].UserId == a.Id).FirstOrDefault();
+                    var storyDto = new StoryDto
+                    {
+                        Id = foodList[i].Id,
+                        UserId = foodList[i].UserId,
+                        FoodTypeId = foodList[i].Id,
+                        Name = foodList[i].Name,
+                        Title = foodList[i].Title,
+                        Thumbnails = foodList[i].Thumbnails,
+                        ViewNumber = foodList[i].ViewNumber,
+                        LikeNumber = foodList[i].LikeNumber,
+                        ShareNumber = foodList[i].ShareNumber,
+                        CookingTime = foodList[i].CookingTime,
+                        PreparationTime = foodList[i].PreparationTime,
+                        Meal = foodList[i].Meal,
+                        LevelOfDifficult = foodList[i].LevelOfDifficult,
+                        Video = foodList[i].Video,
+                        AuthorFirstName = user.FirstName,
+                        AuthorLastName = user.LastName,
+                        AuthorAvatar = user.Avatar,
+                        CreatedDate = foodList[i].CreatedDate,
+
+                    };
+                    stories.Add(storyDto);
+                }
+                return stories;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public object Search(int UserId, string keyword)
+        {
+            try
+            {
+                var food = _foodRepository.FindAll();
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    food = food.Where(row => row.Name.ToLower().Contains(keyword.ToLower()) || keyword.ToLower().Contains(row.Name.ToLower()));
+                }
+                if (keyword == "" || keyword == null)
+                {
+                    throw new Exception("Not key search !");
+                }
+                var foodList = food.ToList();
+                var checkKeyWord = _keySearchRepository.FindByCondition(row => keyword == row.Keyword && UserId == row.UserId).FirstOrDefault();
+                if (checkKeyWord != null)
+                {
+                    checkKeyWord.UpdatedDate = DateTime.Now;
+                    _keySearchRepository.UpdateByEntity(checkKeyWord);
+                    _keySearchRepository.SaveChange();
+                }
+                else
+                {
+                    checkKeyWord = new KeySearch();
+                    checkKeyWord.UserId = UserId;
+                    checkKeyWord.Keyword = keyword;
+                    checkKeyWord.UpdatedDate = DateTime.Now;
+                    checkKeyWord.CreatedDate = DateTime.Now;
+                    _keySearchRepository.Create(checkKeyWord);
+                    _keySearchRepository.SaveChange();
+                }
+                List<StoryDto> stories = new List<StoryDto>();
+                for (int i = 0; i < foodList.Count; i++)
+                {
+                    var user = _userRepository.FindByCondition(a => foodList[i].UserId == a.Id).FirstOrDefault();
+                    var storyDto = new StoryDto
+                    {
+                        Id = foodList[i].Id,
+                        UserId = foodList[i].UserId,
+                        FoodTypeId = foodList[i].Id,
+                        Name = foodList[i].Name,
+                        Title = foodList[i].Title,
+                        Thumbnails = foodList[i].Thumbnails,
+                        ViewNumber = foodList[i].ViewNumber,
+                        LikeNumber = foodList[i].LikeNumber,
+                        ShareNumber = foodList[i].ShareNumber,
+                        CookingTime = foodList[i].CookingTime,
+                        PreparationTime = foodList[i].PreparationTime,
+                        Meal = foodList[i].Meal,
+                        LevelOfDifficult = foodList[i].LevelOfDifficult,
+                        Video = foodList[i].Video,
+                        AuthorFirstName = user.FirstName,
+                        AuthorLastName = user.LastName,
+                        AuthorAvatar = user.Avatar,
+                        CreatedDate = foodList[i].CreatedDate,
+
+                    };
+                    stories.Add(storyDto);
+                }
+                stories.Sort((food1, food2) => food2.CreatedDate.CompareTo(food1.CreatedDate));
+                return stories;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public object GetKeySearch(int userId)
+        {
+            try
+            {
+                var keyList = _keySearchRepository.FindByCondition(row => userId == row.UserId).ToList();
+                keyList.OrderByDescending(keysearch => keysearch.UpdatedDate).ToList();
+                for (int i = 0; i < keyList.Count; i++)
+                {
+                    for (int j = 0; j < keyList.Count; j ++)
+                    {
+                        if (keyList[i].UpdatedDate > keyList[j].UpdatedDate)
+                        {
+                            var a = keyList[i];
+                            keyList[i] = keyList[j];
+                            keyList[j] = a;
+                        }
+                    }
+                }
+                return keyList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public object DeleteSearch(int id)
+        {
+            var keySearch = _keySearchRepository.FindByCondition(row => id == row.Id).FirstOrDefault();
+            if (keySearch == null)
+            {
+                throw new ValidateError(1001, "Keysearch dont exist!");
+            }
+            _keySearchRepository.DeleteByEntity(keySearch);
+            _keySearchRepository.SaveChange();
+            return keySearch;
         }
 
     }

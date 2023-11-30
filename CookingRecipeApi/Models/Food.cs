@@ -12,5 +12,17 @@
         public int LikeNumber { get; set; } = 0;
         public int ShareNumber { get; set; } = 0;
         public int AccessRange { get; set; } = 0;
+
+        public int PreparationTime { get; set; } = 0;
+
+        public int CookingTime { get; set; } = 0;
+
+        public int Meal { get; set; } = 0;
+
+        public int LevelOfDifficult { get; set; } = 0;
+
+        public string Video { get; set; } = "";
+
+
     }
 }

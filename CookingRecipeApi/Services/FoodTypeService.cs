@@ -40,6 +40,7 @@ namespace CookingRecipeApi.Services
             }
         }
 
+        // Lấy thông tin loại món ăn
         public object GetFoodTypeList()
         {
             try

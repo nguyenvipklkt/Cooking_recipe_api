@@ -96,7 +96,7 @@ namespace CookingRecipeApi.Services
                 user.PhoneNumber = request.PhoneNumber;
                 user.Birthday = request.Birthday;
                 user.Address = request.Address;
-                user.UpdatedDate = DateTime.UtcNow;
+                user.UpdatedDate = DateTime.Now;
                 _userRepository.UpdateByEntity(user);
                 _userRepository.SaveChange();
 
@@ -113,9 +113,6 @@ namespace CookingRecipeApi.Services
             try
             {
                 var user = _userRepository.FindByCondition(row => userId == row.Id).FirstOrDefault();
-                user.Password = null;
-                user.OTP = null;
-                user.UpdatedDate = null;
                 return user;
             }
             catch (Exception ex)

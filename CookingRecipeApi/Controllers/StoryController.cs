@@ -69,6 +69,37 @@ namespace CookingRecipeApi.Controllers
                 return NG(ex);
             }
         }
+
+        [HttpPost]
+        [Route("AddView")]
+
+        public MessageData AddView(int foodId)
+        {
+            try
+            {
+                var res = _storyService.addView(UserId, foodId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetStoryHighestView")]
+        public MessageData GetStoryHighestView()
+        {
+            try
+            {
+                var res = _storyService.GetStoryHighestView();
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
     }
 
 

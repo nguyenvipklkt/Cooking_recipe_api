@@ -112,6 +112,80 @@ namespace CookingRecipeApi.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetFoodByFollowingUser")]
+        public MessageData GetFoodByFollowingUser()
+        {
+            try
+            {
+                var res = _foodService.GetFoodByFollowingUser(UserId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetFoodFromFoodType")]
+        public MessageData GetFoodFromFoodType(int foodTypeId)
+        {
+            try
+            {
+                var res = _foodService.GetFoodFromFoodType(foodTypeId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("Search")]
+        public MessageData Search(string keyword)
+        {
+            try
+            {
+                var res = _foodService.Search(UserId, keyword);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpDelete]
+        [Route("DeleteSearch")]
+        public MessageData DeleteSearch(int id)
+        {
+            try
+            {
+                var res = _foodService.DeleteSearch(id);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetKeySearch")]
+        public MessageData GetKeySearch()
+        {
+            try
+            {
+                var res = _foodService.GetKeySearch(UserId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
     }
 
 

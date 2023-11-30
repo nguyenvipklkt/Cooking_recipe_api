@@ -46,6 +46,7 @@ namespace CookingRecipeApi.Services
             }
         }
 
+        // Lấy thông tin các giai đoạn nấu ăn
         public object GetFoodStepList(int foodId)
         {
             try

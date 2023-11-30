@@ -23,6 +23,8 @@ namespace CookingRecipeApi.Database
         public DbSet<ReviewPoint> reviewPoints { get; set; }
         public DbSet<IngredientList> ingredientlists { get; set; }
         public DbSet<FoodType> foodTypes { get; set; }
+        public DbSet<KeySearch> keySearchs { get; set; }
+        public DbSet<View> views { get; set; }
 
         public static void UpdateDatabase(DatabaseContext context)
         {

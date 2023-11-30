@@ -14,5 +14,10 @@ namespace CookingRecipeApi.Request
         public IFormFile? Image { get; set; }
         public string Ingredients { get; set; }
         public string FoodSteps { get; set; }
+        public int PreparationTime { get; set; }
+        public int CookingTime { get; set; }
+        public int Meal { get; set; }
+        public int LevelOfDifficult { get; set; }
+        public IFormFile? Video { get; set; }
     }
 }
