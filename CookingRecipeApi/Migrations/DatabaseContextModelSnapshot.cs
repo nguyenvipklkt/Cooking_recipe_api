@@ -114,6 +114,9 @@ namespace CookingRecipeApi.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("FoodPlaceId")
+                        .HasColumnType("int");
+
                     b.Property<int>("FoodTypeId")
                         .HasColumnType("int");
 
@@ -131,6 +134,9 @@ namespace CookingRecipeApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PreparationTime")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeasonalFoodId")
                         .HasColumnType("int");
 
                     b.Property<int>("ShareNumber")
@@ -160,6 +166,29 @@ namespace CookingRecipeApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("foods");
+                });
+
+            modelBuilder.Entity("CookingRecipeApi.Models.FoodPlace", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("foodPlaces");
                 });
 
             modelBuilder.Entity("CookingRecipeApi.Models.FoodStep", b =>
@@ -334,6 +363,29 @@ namespace CookingRecipeApi.Migrations
                     b.ToTable("reviewPoints");
                 });
 
+            modelBuilder.Entity("CookingRecipeApi.Models.SeasonalFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("seasonalFoods");
+                });
+
             modelBuilder.Entity("CookingRecipeApi.Models.TaskItem", b =>
                 {
                     b.Property<int>("Id")
@@ -456,7 +508,7 @@ namespace CookingRecipeApi.Migrations
                             Avatar = "",
                             Birthday = new DateTime(2001, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Cover = "",
-                            CreatedDate = new DateTime(2023, 11, 30, 12, 51, 29, 772, DateTimeKind.Utc).AddTicks(4543),
+                            CreatedDate = new DateTime(2023, 12, 8, 3, 40, 46, 59, DateTimeKind.Utc).AddTicks(567),
                             Email = "Test@gmail.com",
                             FirstName = "Test",
                             LastName = "Test",

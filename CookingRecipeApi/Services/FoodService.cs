@@ -9,6 +9,7 @@ using CookingRecipeApi.Request;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace CookingRecipeApi.Services
 {
@@ -18,6 +19,7 @@ namespace CookingRecipeApi.Services
         private readonly FollowRepository _followRepository;
         private readonly KeySearchRepository _keySearchRepository;
         private readonly UserRepository _userRepository;
+        DatabaseContext databaseContext;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHost;
@@ -72,11 +74,37 @@ namespace CookingRecipeApi.Services
             }
         }
 
-        public object GetFoodListWithUser(int userId)
+        public object GetFoodListWithUser(int userId, int checkUserId)
         {
             try
             {
-                return _foodRepository.FindByCondition(row=> userId == row.UserId);
+                var food = _foodRepository.FindByCondition(row=> userId == row.UserId).ToList();
+                if(userId == checkUserId)
+                {
+                    return food;
+                }
+                else
+                {
+                    List<Food> result = new List<Food>();
+                    var checkFollowing = _followRepository.FindByCondition(row => userId == row.FollowingUserId && checkUserId == row.UserId).FirstOrDefault();
+                    if (checkFollowing == null)
+                    {
+                        for (int i = 0; i < food.Count; i++)
+                        {
+                            if (food[i].AccessRange == 1)
+                            {
+                                result.Add(food[i]);
+                            }
+                        }
+                        
+                    }
+                    else
+                    {
+                        result = food;
+                    }
+                    
+                    return result;
+                }
             }
             catch (Exception ex)
             {
@@ -90,7 +118,6 @@ namespace CookingRecipeApi.Services
             {
 
                 var food = _foodRepository.FindAll().ToList();
-                
                 List<StoryDto> storyList = new List<StoryDto>();
                 for (int i = 0; i < food.Count; i ++)
                 {
@@ -100,6 +127,9 @@ namespace CookingRecipeApi.Services
                         UserId = food[i].UserId,
                         Name = food[i].Name,
                         Thumbnails = food[i].Thumbnails,
+                        FoodPlaceId = food[i].FoodPlaceId,
+                        SeasonalFoodId = food[i].SeasonalFoodId,
+                        FoodTypeId = food[i].FoodTypeId,
                         Title = food[i].Title,
                         ViewNumber = food[i].ViewNumber,
                         LikeNumber = food[i].LikeNumber,
@@ -114,7 +144,10 @@ namespace CookingRecipeApi.Services
                         AuthorAvatar = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().Avatar,
                         CreatedDate = food[i].CreatedDate,
                     };
-                    storyList.Add(storyInf);
+                    if (food[i].AccessRange == 1)
+                    {
+                        storyList.Add(storyInf);
+                    }
                 }
 
                 return storyList;
@@ -180,9 +213,11 @@ namespace CookingRecipeApi.Services
                         {
                             Id = food[j].Id,
                             UserId = food[j].UserId,
-                            FoodTypeId = food[j].Id,
+                            FoodTypeId = food[j].FoodTypeId,
                             Name = food[j].Name,
                             Title = food[j].Title,
+                            FoodPlaceId = food[j].FoodPlaceId,
+                            SeasonalFoodId = food[j].SeasonalFoodId,
                             Thumbnails = food[j].Thumbnails,
                             ViewNumber = food[j].ViewNumber,
                             LikeNumber  = food[j].LikeNumber,
@@ -223,7 +258,9 @@ namespace CookingRecipeApi.Services
                     {
                         Id = foodList[i].Id,
                         UserId = foodList[i].UserId,
-                        FoodTypeId = foodList[i].Id,
+                        FoodTypeId = foodList[i].FoodTypeId,
+                        FoodPlaceId = foodList[i].FoodPlaceId,
+                        SeasonalFoodId = foodList[i].SeasonalFoodId,
                         Name = foodList[i].Name,
                         Title = foodList[i].Title,
                         Thumbnails = foodList[i].Thumbnails,
@@ -241,7 +278,10 @@ namespace CookingRecipeApi.Services
                         CreatedDate = foodList[i].CreatedDate,
 
                     };
-                    stories.Add(storyDto);
+                    if (foodList[i].AccessRange == 1)
+                    {
+                        stories.Add(storyDto);
+                    }
                 }
                 return stories;
             }
@@ -289,7 +329,9 @@ namespace CookingRecipeApi.Services
                     {
                         Id = foodList[i].Id,
                         UserId = foodList[i].UserId,
-                        FoodTypeId = foodList[i].Id,
+                        FoodTypeId = foodList[i].FoodTypeId,
+                        FoodPlaceId = foodList[i].FoodPlaceId,
+                        SeasonalFoodId = foodList[i].SeasonalFoodId,
                         Name = foodList[i].Name,
                         Title = foodList[i].Title,
                         Thumbnails = foodList[i].Thumbnails,
@@ -307,7 +349,10 @@ namespace CookingRecipeApi.Services
                         CreatedDate = foodList[i].CreatedDate,
 
                     };
-                    stories.Add(storyDto);
+                    if (foodList[i].AccessRange == 1 )
+                    {
+                        stories.Add(storyDto);
+                    }
                 }
                 stories.Sort((food1, food2) => food2.CreatedDate.CompareTo(food1.CreatedDate));
                 return stories;
@@ -353,6 +398,43 @@ namespace CookingRecipeApi.Services
             _keySearchRepository.DeleteByEntity(keySearch);
             _keySearchRepository.SaveChange();
             return keySearch;
+        }
+
+        public object UpdateStatusFood(int foodId, int userId)
+        {
+            try
+            {
+                var food = _foodRepository.FindByCondition(row => foodId == row.Id).FirstOrDefault();
+                if (food == null)
+                {
+                    throw new Exception("Food not exist!");
+                }
+                if (userId == food.UserId)
+                {
+                    if (food.AccessRange == 0)
+                    {
+                        food.AccessRange = 1;
+                        _foodRepository.UpdateByEntity(food);
+                        _foodRepository.SaveChange();
+                        return true;
+                    }
+                    else
+                    {
+                        food.AccessRange = 0;
+                        _foodRepository.UpdateByEntity(food);
+                        _foodRepository.SaveChange();
+                        return true;
+                    }
+                }
+                else
+                {
+                    throw new Exception("You do not have the right to change!");
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

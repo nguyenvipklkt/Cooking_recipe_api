@@ -5,6 +5,8 @@
         public int Id { get; set; }
         public int UserId { get; set; }
         public int FoodTypeId { get; set; }
+        public int FoodPlaceId { get; set; } = 1;
+        public int SeasonalFoodId { get; set; } = 1;
         public string Name { get; set; }
         public string Title { get; set; }
         public string Thumbnails { get; set; } = "";

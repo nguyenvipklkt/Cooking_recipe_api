@@ -14,6 +14,7 @@ namespace CookingRecipeApi.Services
     {
         private readonly ReviewRepository _reviewRepository;
         private readonly UserRepository _userRepository;
+        private readonly FoodRepository _foodRepository;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHost;
@@ -22,6 +23,7 @@ namespace CookingRecipeApi.Services
         {
             _reviewRepository = new ReviewRepository(apiOption, databaseContext, mapper);
             _userRepository = new UserRepository(apiOption, databaseContext, mapper);
+            _foodRepository = new FoodRepository(apiOption, databaseContext, mapper);
             _apiOption = apiOption;
             _mapper = mapper;
             _webHost = webHost;
@@ -74,13 +76,22 @@ namespace CookingRecipeApi.Services
         }
         public object DeleteComment(int userId, int CommentId)
         {
-            var comment = _reviewRepository.FindByCondition(row => CommentId == row.Id && userId == row.UserId).FirstOrDefault();
+            var comment = _reviewRepository.FindByCondition(row => CommentId == row.Id).FirstOrDefault();
+            var food = _foodRepository.FindByCondition(row => comment.FoodId == row.Id).FirstOrDefault();
             if (comment == null)
             {
                 throw new ValidateError(1001, "Comment dont exist!");
             }
-            _reviewRepository.DeleteByEntity(comment);
-            _reviewRepository.SaveChange();
+            if (comment.UserId == userId || food.UserId == userId)
+            {
+                _reviewRepository.DeleteByEntity(comment);
+                _reviewRepository.SaveChange();
+            }
+            else
+            {
+                throw new Exception("You do not have the right to delete!");
+            }
+
             return comment;
         }
     }

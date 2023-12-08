@@ -43,7 +43,7 @@ namespace CookingRecipeApi.Controllers
         {
             try
             {
-                var res = _foodService.GetFoodListWithUser(UserId);
+                var res = _foodService.GetFoodListWithUser(UserId, UserId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)
@@ -58,7 +58,7 @@ namespace CookingRecipeApi.Controllers
         {
             try
             {
-                var res = _foodService.GetFoodListWithUser(userId);
+                var res = _foodService.GetFoodListWithUser(userId, UserId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)
@@ -179,6 +179,21 @@ namespace CookingRecipeApi.Controllers
             try
             {
                 var res = _foodService.GetKeySearch(UserId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        [HttpPut]
+        [Route("UpdateStatusFood")]
+        public MessageData UpdateStatusFood(int foodId)
+        {
+            try
+            {
+                var res = _foodService.UpdateStatusFood(foodId, UserId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)

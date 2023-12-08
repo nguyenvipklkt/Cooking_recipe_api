@@ -63,6 +63,8 @@ namespace CookingRecipeApi.Services
                     newFood.Video = "foods/videos/" + date + request.Video.FileName;
                 }
                 newFood.FoodTypeId = request.FoodTypeId;
+                newFood.FoodPlaceId = request.FoodPlaceId;
+                newFood.SeasonalFoodId = request.SeasonalFoodId;
                 newFood.UserId = userId;
                 newFood.Name = request.Name;
                 newFood.Title = request.Title;
@@ -147,6 +149,8 @@ namespace CookingRecipeApi.Services
             food.Name = request.Name;
             food.Title = request.Title;
             food.FoodTypeId = request.FoodTypeId;
+            food.SeasonalFoodId = request.SeasonalFoodId;
+            food.FoodPlaceId = request.FoodPlaceId;
             food.PreparationTime = request.PreparationTime;
             food.CookingTime = request.CookingTime;
             food.Meal = request.Meal;

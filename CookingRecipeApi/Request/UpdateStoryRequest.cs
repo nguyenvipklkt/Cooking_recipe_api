@@ -9,6 +9,9 @@ namespace CookingRecipeApi.Request
     {
         public int Id { get; set; }
         public int FoodTypeId { get; set; }
+
+        public int FoodPlaceId { get; set; }
+        public int SeasonalFoodId { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
         public IFormFile? Image { get; set; }

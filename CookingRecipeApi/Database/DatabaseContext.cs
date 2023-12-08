@@ -25,6 +25,8 @@ namespace CookingRecipeApi.Database
         public DbSet<FoodType> foodTypes { get; set; }
         public DbSet<KeySearch> keySearchs { get; set; }
         public DbSet<View> views { get; set; }
+        public DbSet<FoodPlace> foodPlaces { get; set; }
+        public DbSet<SeasonalFood> seasonalFoods { get; set; }
 
         public static void UpdateDatabase(DatabaseContext context)
         {

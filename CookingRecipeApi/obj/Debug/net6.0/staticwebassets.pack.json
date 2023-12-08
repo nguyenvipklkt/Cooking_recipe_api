@@ -125,6 +125,18 @@
       "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_11_24_15_13ga-xao-hat-dieu-kieu-thai.jpg"
     },
     {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_12_01_07_21mon-an.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_12_01_07_21mon-an.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_12_06_13_00mi-tom.jfif",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_12_06_13_00mi-tom.jfif"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\thumbnails\\2023_12_07_06_11download.jpg",
+      "PackagePath": "staticwebassets\\foods\\thumbnails\\2023_12_07_06_11download.jpg"
+    },
+    {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\videos\\2023_11_24_14_31GODZILLA MINUS ONE Official Trailer 2.mp4",
       "PackagePath": "staticwebassets\\foods\\videos\\2023_11_24_14_31GODZILLA MINUS ONE Official Trailer 2.mp4"
     },
@@ -135,6 +147,18 @@
     {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\videos\\2023_11_24_15_13Gà Xào Hạt Điều Thơm Bùi Lạ Miệng _ Feedy VN.mp4",
       "PackagePath": "staticwebassets\\foods\\videos\\2023_11_24_15_13Gà Xào Hạt Điều Thơm Bùi Lạ Miệng _ Feedy VN.mp4"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\videos\\2023_12_01_07_21Bí Mật Tạo Nên Món Ăn Ngon - Trailer.mp4",
+      "PackagePath": "staticwebassets\\foods\\videos\\2023_12_01_07_21Bí Mật Tạo Nên Món Ăn Ngon - Trailer.mp4"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\videos\\2023_12_06_13_00Cách nấu mì tôm ngon - cách nấu Mì Tôm trứng ngon cấp tốc cho bữa sáng.mp4",
+      "PackagePath": "staticwebassets\\foods\\videos\\2023_12_06_13_00Cách nấu mì tôm ngon - cách nấu Mì Tôm trứng ngon cấp tốc cho bữa sáng.mp4"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\foods\\videos\\2023_12_07_06_11Tập 40- Mực xào sa tế siêu hao cơm dành cho bạn - Chef Hoshi Phan.mp4",
+      "PackagePath": "staticwebassets\\foods\\videos\\2023_12_07_06_11Tập 40- Mực xào sa tế siêu hao cơm dành cho bạn - Chef Hoshi Phan.mp4"
     },
     {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\tasks\\images\\logo hung.png",
@@ -181,6 +205,14 @@
       "PackagePath": "staticwebassets\\users\\avatars\\2023_11_23_06_49397217812_691333886309241_9013267120817285807_n (1).jpg"
     },
     {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_12_05_06_24avatar.jpg",
+      "PackagePath": "staticwebassets\\users\\avatars\\2023_12_05_06_24avatar.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\avatars\\2023_12_07_06_02download.jpg",
+      "PackagePath": "staticwebassets\\users\\avatars\\2023_12_07_06_02download.jpg"
+    },
+    {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg",
       "PackagePath": "staticwebassets\\users\\covers\\2023_11_01_14_04142569739_101363188639650_3063431314760930775_n.jpg"
     },
@@ -219,6 +251,14 @@
     {
       "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_11_23_06_49142569739_101363188639650_3063431314760930775_n (1).jpg",
       "PackagePath": "staticwebassets\\users\\covers\\2023_11_23_06_49142569739_101363188639650_3063431314760930775_n (1).jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_12_05_06_24mon-an.jpg",
+      "PackagePath": "staticwebassets\\users\\covers\\2023_12_05_06_24mon-an.jpg"
+    },
+    {
+      "Id": "C:\\Project\\cooking_recipe\\cooking_recipe_api\\CookingRecipeApi\\wwwroot\\users\\covers\\2023_12_07_06_02download.jpg",
+      "PackagePath": "staticwebassets\\users\\covers\\2023_12_07_06_02download.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CookingRecipeApi.Microsoft.AspNetCore.StaticWebAssets.props",
