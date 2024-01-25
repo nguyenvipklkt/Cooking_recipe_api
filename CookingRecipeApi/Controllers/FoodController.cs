@@ -129,11 +129,11 @@ namespace CookingRecipeApi.Controllers
 
         [HttpGet]
         [Route("GetFoodFromFoodType")]
-        public MessageData GetFoodFromFoodType(int foodTypeId)
+        public MessageData GetFoodFromFoodType(int? foodTypeId, int? foodPlaceId, int? seasonalFoodId)
         {
             try
             {
-                var res = _foodService.GetFoodFromFoodType(foodTypeId);
+                var res = _foodService.GetFoodFromFoodType(foodTypeId, foodPlaceId, seasonalFoodId);
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)
@@ -194,6 +194,36 @@ namespace CookingRecipeApi.Controllers
             try
             {
                 var res = _foodService.UpdateStatusFood(foodId, UserId);
+                return new MessageData { Data = res, Status = 1 };
+            }
+            catch (Exception ex)
+            {
+                return NG(ex);
+            }
+        }
+
+        //[HttpPut]
+        //[Route("UpdateSSFandPF")]
+        //public MessageData UpdateSSFandPF()
+        //{
+        //    try
+        //    {
+        //        var res = _foodService.UpdateSSFandPF();
+        //        return new MessageData { Data = res, Status = 1 };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return NG(ex);
+        //    }
+        //}
+
+        [HttpGet]
+        [Route("GetFoodInTrend")]
+        public MessageData GetFoodInTrend()
+        {
+            try
+            {
+                var res = _foodService.GetFoodInTrend();
                 return new MessageData { Data = res, Status = 1 };
             }
             catch (Exception ex)

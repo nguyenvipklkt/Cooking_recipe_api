@@ -3,6 +3,7 @@ using BanVeXemPhimApi.Common;
 using CookingRecipeApi.Common;
 using CookingRecipeApi.Database;
 using CookingRecipeApi.Dto;
+using CookingRecipeApi.Helpers.SocketHelper;
 using CookingRecipeApi.Models;
 using CookingRecipeApi.Repositories;
 using CookingRecipeApi.Request;
@@ -13,17 +14,19 @@ namespace CookingRecipeApi.Services
     public class ReviewService
     {
         private readonly ReviewRepository _reviewRepository;
+        private readonly NotificationRepository _notificationRepository;
         private readonly UserRepository _userRepository;
         private readonly FoodRepository _foodRepository;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHost;
 
-        public ReviewService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost)
+        public ReviewService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost, ConnectionManager connectionManager)
         {
             _reviewRepository = new ReviewRepository(apiOption, databaseContext, mapper);
             _userRepository = new UserRepository(apiOption, databaseContext, mapper);
             _foodRepository = new FoodRepository(apiOption, databaseContext, mapper);
+            _notificationRepository = new NotificationRepository(apiOption, databaseContext, mapper, connectionManager);
             _apiOption = apiOption;
             _mapper = mapper;
             _webHost = webHost;
@@ -33,11 +36,20 @@ namespace CookingRecipeApi.Services
         {
             try
             {
+                var author = _foodRepository.FindOrFail(request.FoodId);
+                if (author == null)
+                {
+                    throw new Exception("Story doesn't exist!");
+                }
                 var newComment = _mapper.Map<Review>(request);
 
                 newComment.UserId = userId;
                 _reviewRepository.Create(newComment);
                 _reviewRepository.SaveChange();
+
+                // create notification
+                _notificationRepository.CreateNotification(author.UserId,userId, request.FoodId,1);
+
                 return newComment;
             }
             catch (Exception ex)

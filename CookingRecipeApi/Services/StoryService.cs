@@ -2,6 +2,7 @@
 using BanVeXemPhimApi.Common;
 using CookingRecipeApi.Common;
 using CookingRecipeApi.Database;
+using CookingRecipeApi.Helpers.SocketHelper;
 using CookingRecipeApi.Models;
 using CookingRecipeApi.Repositories;
 using CookingRecipeApi.Request;
@@ -18,16 +19,23 @@ namespace CookingRecipeApi.Services
         private readonly FoodStepRepository _foodStepRepository;
         private readonly IngredientListRepository _ingredientListRepository;
         private readonly ViewRepository _viewRepository;
+        private readonly NotificationRepository _notificationRepository;
+        private readonly UserRepository _userRepository;
+        private readonly FollowRepository _followRepository;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHost;
 
-        public StoryService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost)
+        public StoryService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost, ConnectionManager connectionManager)
         {
             _foodStepRepository = new FoodStepRepository(apiOption, databaseContext, mapper);
             _foodRepository = new FoodRepository(apiOption, databaseContext, mapper);
             _ingredientListRepository = new IngredientListRepository(apiOption, databaseContext, mapper);
-            _viewRepository = new ViewRepository(apiOption, databaseContext, mapper);
+            _viewRepository = new ViewRepository(apiOption, databaseContext, mapper); 
+            _notificationRepository = new NotificationRepository(apiOption, databaseContext, mapper, connectionManager);
+            _userRepository = new UserRepository(apiOption, databaseContext, mapper);
+            _followRepository = new FollowRepository(apiOption, databaseContext, mapper);
+            _apiOption = apiOption;
             _apiOption = apiOption;
             _mapper = mapper;
             _webHost = webHost;
@@ -109,6 +117,16 @@ namespace CookingRecipeApi.Services
                     _foodStepRepository.Create(newFoodSteps);
                 }
                 _foodStepRepository.SaveChange();
+
+                //notify
+
+                var follow = _followRepository.FindByCondition(row => row.FollowingUserId == newFood.UserId).ToList();
+
+                for (int i = 0; i < follow.Count; i++)
+                {
+                    _notificationRepository.CreateNotification(follow[i].UserId, follow[i].FollowingUserId, newFood.Id, 3);
+                }
+
                 return newFood;
             }
             catch (Exception ex)

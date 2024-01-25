@@ -306,6 +306,41 @@ namespace CookingRecipeApi.Migrations
                     b.ToTable("keySearchs");
                 });
 
+            modelBuilder.Entity("CookingRecipeApi.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReactingUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("notifications");
+                });
+
             modelBuilder.Entity("CookingRecipeApi.Models.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -508,7 +543,7 @@ namespace CookingRecipeApi.Migrations
                             Avatar = "",
                             Birthday = new DateTime(2001, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Cover = "",
-                            CreatedDate = new DateTime(2023, 12, 8, 3, 40, 46, 59, DateTimeKind.Utc).AddTicks(567),
+                            CreatedDate = new DateTime(2024, 1, 1, 14, 12, 23, 329, DateTimeKind.Utc).AddTicks(864),
                             Email = "Test@gmail.com",
                             FirstName = "Test",
                             LastName = "Test",

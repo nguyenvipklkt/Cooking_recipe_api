@@ -18,9 +18,9 @@ namespace CookingRecipeApi.Controllers
     public class StoryController : BaseApiController<StoryController>
     {
         private readonly StoryService _storyService;
-        public StoryController(DatabaseContext databaseContext, IMapper mapper, ApiOption apiConfig, IWebHostEnvironment webHost)
+        public StoryController(DatabaseContext databaseContext, IMapper mapper, ApiOption apiConfig, IWebHostEnvironment webHost, ConnectionManager connectionManager)
         {
-            _storyService = new StoryService(apiConfig, databaseContext, mapper, webHost);
+            _storyService = new StoryService(apiConfig, databaseContext, mapper, webHost, connectionManager);
         }
 
 

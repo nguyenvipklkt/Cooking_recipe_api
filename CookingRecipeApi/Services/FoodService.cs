@@ -6,6 +6,7 @@ using CookingRecipeApi.Dto;
 using CookingRecipeApi.Models;
 using CookingRecipeApi.Repositories;
 using CookingRecipeApi.Request;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -15,6 +16,7 @@ namespace CookingRecipeApi.Services
 {
     public class FoodService
     {
+        private readonly ReviewPointRepository _reviewPointRepository;
         private readonly FoodRepository _foodRepository;
         private readonly FollowRepository _followRepository;
         private readonly KeySearchRepository _keySearchRepository;
@@ -26,6 +28,7 @@ namespace CookingRecipeApi.Services
 
         public FoodService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost)
         {
+            _reviewPointRepository = new ReviewPointRepository(apiOption, databaseContext, mapper);
             _foodRepository = new FoodRepository(apiOption, databaseContext, mapper);
             _userRepository = new UserRepository(apiOption, databaseContext, mapper);
             _followRepository = new FollowRepository(apiOption, databaseContext, mapper);
@@ -81,11 +84,36 @@ namespace CookingRecipeApi.Services
                 var food = _foodRepository.FindByCondition(row=> userId == row.UserId).ToList();
                 if(userId == checkUserId)
                 {
-                    return food;
+                    List<object> results = new List<object>();
+                    for (int i = 0; i < food.Count; i++)
+                    {
+                        var reviewPointList = _reviewPointRepository.FindByCondition(row => food[i].Id == row.FoodId).ToList();
+                        double averagePoint;
+                        if (reviewPointList.Count == 0)
+                        {
+                            averagePoint = 5;
+                        }
+                        else
+                        {
+                            List<int> pointList = new List<int>();
+                            for (int j = 0; j < reviewPointList.Count; j++)
+                            {
+                                pointList.Add(reviewPointList[j].Point);
+                            }
+                            averagePoint = pointList.Average();
+                        }
+                        var story = new
+                        {
+                            food = food[i],
+                            point = averagePoint,
+                        };
+                        results.Add(story);
+                    }
+                    return results;
                 }
                 else
                 {
-                    List<Food> result = new List<Food>();
+                    List<object> results = new List<object>();
                     var checkFollowing = _followRepository.FindByCondition(row => userId == row.FollowingUserId && checkUserId == row.UserId).FirstOrDefault();
                     if (checkFollowing == null)
                     {
@@ -93,17 +121,60 @@ namespace CookingRecipeApi.Services
                         {
                             if (food[i].AccessRange == 1)
                             {
-                                result.Add(food[i]);
+                                var reviewPointList = _reviewPointRepository.FindByCondition(row => food[i].Id == row.FoodId).ToList();
+                                double averagePoint;
+                                if (reviewPointList.Count == 0)
+                                {
+                                    averagePoint = 5;
+                                }
+                                else
+                                {
+                                    List<int> pointList = new List<int>();
+                                    for (int j = 0; j < reviewPointList.Count; j++)
+                                    {
+                                        pointList.Add(reviewPointList[j].Point);
+                                    }
+                                    averagePoint = pointList.Average();
+                                }
+                                var story = new
+                                {
+                                    food = food[i],
+                                    point = averagePoint,
+                                };
+                                results.Add(story);
                             }
                         }
                         
                     }
                     else
                     {
-                        result = food;
+                        for (int i = 0; i < food.Count; i++)
+                        {
+                            var reviewPointList = _reviewPointRepository.FindByCondition(row => food[i].Id == row.FoodId).ToList();
+                            double averagePoint;
+                            if (reviewPointList.Count == 0)
+                            {
+                                averagePoint = 5;
+                            }
+                            else
+                            {
+                                List<int> pointList = new List<int>();
+                                for (int j = 0; j < reviewPointList.Count; j++)
+                                {
+                                    pointList.Add(reviewPointList[j].Point);
+                                }
+                                averagePoint = pointList.Average();
+                            }
+                            var story = new
+                            {
+                                food = food[i],
+                                point = averagePoint,
+                            };
+                            results.Add(story);
+                        }
                     }
-                    
-                    return result;
+
+                    return results;
                 }
             }
             catch (Exception ex)
@@ -121,6 +192,21 @@ namespace CookingRecipeApi.Services
                 List<StoryDto> storyList = new List<StoryDto>();
                 for (int i = 0; i < food.Count; i ++)
                 {
+                    var reviewPointList = _reviewPointRepository.FindByCondition(row => food[i].Id == row.FoodId).ToList();
+                    double averagedPoint;
+                    if (reviewPointList.Count == 0)
+                    {
+                        averagedPoint = 5;
+                    }
+                    else
+                    {
+                        List<int> pointList = new List<int>();
+                        for (int j = 0; j < reviewPointList.Count; j++)
+                        {
+                            pointList.Add(reviewPointList[j].Point);
+                        }
+                        averagedPoint = pointList.Average();
+                    }
                     var storyInf = new StoryDto
                     {
                         Id = food[i].Id,
@@ -139,6 +225,7 @@ namespace CookingRecipeApi.Services
                         Meal = food[i].Meal,
                         LevelOfDifficult = food[i].LevelOfDifficult,
                         Video = food[i].Video,
+                        reviewPoint = averagedPoint,
                         AuthorFirstName = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().FirstName,
                         AuthorLastName = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().LastName,
                         AuthorAvatar = _userRepository.FindByCondition(row => food[i].UserId == row.Id).FirstOrDefault().Avatar,
@@ -208,6 +295,21 @@ namespace CookingRecipeApi.Services
                     var food = _foodRepository.FindByCondition(row => follow[i].FollowingUserId == row.UserId).ToList();
                     for (int j = 0; j < food.Count; j ++)
                     {
+                        var reviewPointList = _reviewPointRepository.FindByCondition(row => food[j].Id == row.FoodId).ToList();
+                        double averagePoint;
+                        if (reviewPointList.Count == 0)
+                        {
+                            averagePoint = 5;
+                        }
+                        else
+                        {
+                            List<int> pointList = new List<int>();
+                            for (int k = 0; k < reviewPointList.Count; k++)
+                            {
+                                pointList.Add(reviewPointList[k].Point);
+                            }
+                            averagePoint = pointList.Average();
+                        }
                         var user = _userRepository.FindByCondition(a => food[j].UserId == a.Id).FirstOrDefault();
                         var storyDto = new StoryDto 
                         {
@@ -227,6 +329,7 @@ namespace CookingRecipeApi.Services
                             Meal = food[j].Meal,
                             LevelOfDifficult = food[j].LevelOfDifficult,
                             Video = food[j].Video,
+                            reviewPoint = averagePoint,
                             AuthorFirstName = user.FirstName,
                             AuthorLastName = user.LastName,
                             AuthorAvatar = user.Avatar,
@@ -245,15 +348,62 @@ namespace CookingRecipeApi.Services
             }
         }
 
-        public object GetFoodFromFoodType(int foodTypeId)
+        public object GetFoodFromFoodType(int? foodTypeId, int? foodPlaceId, int? seasonalFoodId)
         {
             try
             {
-                var foodList = _foodRepository.FindByCondition(row => foodTypeId == row.FoodTypeId).ToList();
+                List<Food> foodList = new List<Food>();
+                if (foodTypeId == null && foodPlaceId == null && seasonalFoodId == null)
+                {
+                    throw new Exception("No search");
+                }
+                else if (foodTypeId == null && foodPlaceId == null)
+                {
+                    foodList = _foodRepository.FindByCondition(row => seasonalFoodId == row.SeasonalFoodId).ToList();
+                }
+                else if (foodPlaceId == null && seasonalFoodId == null)
+                {
+                    foodList = _foodRepository.FindByCondition(row => foodTypeId == row.FoodTypeId).ToList();
+                }
+                else if (foodTypeId == null && seasonalFoodId == null)
+                {
+                    foodList = _foodRepository.FindByCondition(row => foodPlaceId == row.FoodPlaceId).ToList();
+                }
+                else if (foodTypeId == null)
+                {
+                    foodList = _foodRepository.FindByCondition(row => foodPlaceId == row.FoodPlaceId && seasonalFoodId == row.SeasonalFoodId).ToList();
+                }
+                else if (foodPlaceId == null)
+                {
+                    foodList = _foodRepository.FindByCondition(row => foodTypeId == row.FoodTypeId && seasonalFoodId == row.SeasonalFoodId).ToList();
+                }
+                else if (seasonalFoodId == null)
+                {
+                    foodList = _foodRepository.FindByCondition(row => foodTypeId == row.FoodTypeId && foodPlaceId == row.FoodPlaceId).ToList();
+                }
+                else
+                {
+                    foodList = _foodRepository.FindByCondition(row => foodTypeId == row.FoodTypeId && foodPlaceId == row.FoodPlaceId && seasonalFoodId == row.SeasonalFoodId).ToList();
+                }
                 List<StoryDto> stories = new List<StoryDto>();
                 for (int i = 0; i < foodList.Count; i++)
                 {
                     var user = _userRepository.FindByCondition(a => foodList[i].UserId == a.Id).FirstOrDefault();
+                    var reviewPointList = _reviewPointRepository.FindByCondition(row => foodList[i].Id == row.FoodId).ToList();
+                    double averagePoint;
+                    if (reviewPointList.Count == 0)
+                    {
+                        averagePoint = 5;
+                    }
+                    else
+                    {
+                        List<int> pointList = new List<int>();
+                        for (int k = 0; k < reviewPointList.Count; k++)
+                        {
+                            pointList.Add(reviewPointList[k].Point);
+                        }
+                        averagePoint = pointList.Average();
+                    }
                     var storyDto = new StoryDto
                     {
                         Id = foodList[i].Id,
@@ -272,6 +422,7 @@ namespace CookingRecipeApi.Services
                         Meal = foodList[i].Meal,
                         LevelOfDifficult = foodList[i].LevelOfDifficult,
                         Video = foodList[i].Video,
+                        reviewPoint = averagePoint,
                         AuthorFirstName = user.FirstName,
                         AuthorLastName = user.LastName,
                         AuthorAvatar = user.Avatar,
@@ -325,6 +476,21 @@ namespace CookingRecipeApi.Services
                 for (int i = 0; i < foodList.Count; i++)
                 {
                     var user = _userRepository.FindByCondition(a => foodList[i].UserId == a.Id).FirstOrDefault();
+                    var reviewPointList = _reviewPointRepository.FindByCondition(row => foodList[i].Id == row.FoodId).ToList();
+                    double averagePoint;
+                    if (reviewPointList.Count == 0)
+                    {
+                        averagePoint = 5;
+                    }
+                    else
+                    {
+                        List<int> pointList = new List<int>();
+                        for (int k = 0; k < reviewPointList.Count; k++)
+                        {
+                            pointList.Add(reviewPointList[k].Point);
+                        }
+                        averagePoint = pointList.Average();
+                    }
                     var storyDto = new StoryDto
                     {
                         Id = foodList[i].Id,
@@ -343,6 +509,7 @@ namespace CookingRecipeApi.Services
                         Meal = foodList[i].Meal,
                         LevelOfDifficult = foodList[i].LevelOfDifficult,
                         Video = foodList[i].Video,
+                        reviewPoint = averagePoint,
                         AuthorFirstName = user.FirstName,
                         AuthorLastName = user.LastName,
                         AuthorAvatar = user.Avatar,
@@ -436,6 +603,100 @@ namespace CookingRecipeApi.Services
                 throw ex;
             }
         }
+
+
+        public object GetFoodInTrend()
+        {
+            try
+            {
+                var currentDate = DateTime.Now;
+                List<Food> foodList = new List<Food>();
+                if (currentDate.Month == 2 || currentDate.Month == 3 || currentDate.Month == 4)
+                {
+                    foodList = _foodRepository.FindByCondition(row => row.SeasonalFoodId == 1 || row.SeasonalFoodId == 6).ToList();
+                }
+                else if (currentDate.Month == 5 || currentDate.Month == 6 || currentDate.Month == 7)
+                {
+                    foodList = _foodRepository.FindByCondition(row => row.SeasonalFoodId == 2 || row.SeasonalFoodId == 5).ToList();
+                }
+                else if (currentDate.Month == 8 || currentDate.Month == 9 || currentDate.Month == 10)
+                {
+                    foodList = _foodRepository.FindByCondition(row => row.SeasonalFoodId == 3 || row.SeasonalFoodId == 5).ToList();
+                }
+                else if (currentDate.Month == 11 || currentDate.Month == 12 || currentDate.Month == 01)
+                {
+                    foodList = _foodRepository.FindByCondition(row => row.SeasonalFoodId == 4 || row.SeasonalFoodId == 6).ToList();
+                }
+                List<StoryDto> stories = new List<StoryDto>();
+                for (int i = 0; i < foodList.Count; i++)
+                {
+                    var user = _userRepository.FindByCondition(a => foodList[i].UserId == a.Id).FirstOrDefault();
+                    var storyDto = new StoryDto
+                    {
+                        Id = foodList[i].Id,
+                        UserId = foodList[i].UserId,
+                        FoodTypeId = foodList[i].FoodTypeId,
+                        FoodPlaceId = foodList[i].FoodPlaceId,
+                        SeasonalFoodId = foodList[i].SeasonalFoodId,
+                        Name = foodList[i].Name,
+                        Title = foodList[i].Title,
+                        Thumbnails = foodList[i].Thumbnails,
+                        ViewNumber = foodList[i].ViewNumber,
+                        LikeNumber = foodList[i].LikeNumber,
+                        ShareNumber = foodList[i].ShareNumber,
+                        CookingTime = foodList[i].CookingTime,
+                        PreparationTime = foodList[i].PreparationTime,
+                        Meal = foodList[i].Meal,
+                        LevelOfDifficult = foodList[i].LevelOfDifficult,
+                        Video = foodList[i].Video,
+                        AuthorFirstName = user.FirstName,
+                        AuthorLastName = user.LastName,
+                        AuthorAvatar = user.Avatar,
+                        CreatedDate = foodList[i].CreatedDate,
+
+                    };
+                    if (foodList[i].AccessRange == 1)
+                    {
+                        stories.Add(storyDto);
+                    }
+                }
+                //List<StoryDto> ranDomStories = new List<StoryDto>();
+                //Random random = new Random();
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    int index = random.Next(0,stories.Count - 1);
+                //    ranDomStories.Add(stories[index]);
+                //    stories.RemoveAt(index);
+                //}
+                //return ranDomStories;
+                return stories;
+            }
+
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        //public object UpdateSSFandPF()
+        //{
+        //    var food = _foodRepository.FindByCondition(row => row.FoodPlaceId == 0 && row.SeasonalFoodId == 0).ToList();
+        //    for (int i = 0; i < food.Count; i++)
+        //    {
+        //        Random TenBienRanDom = new Random();
+        //        food[i].FoodPlaceId = TenBienRanDom.Next(1, 3);
+        //        if (food[i].FoodPlaceId == 1 || food[i].FoodPlaceId == 2)
+        //        {
+        //            food[i].SeasonalFoodId = TenBienRanDom.Next(1, 4);
+        //        }
+        //        else if (food[i].FoodPlaceId == 3) {
+        //            food[i].SeasonalFoodId = TenBienRanDom.Next(5, 6);
+        //        }
+        //        _foodRepository.UpdateByEntity(food[i]);
+        //        _foodRepository.SaveChange();
+        //    }
+        //    return true;
+        //}
 
     }
     

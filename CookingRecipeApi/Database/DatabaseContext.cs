@@ -27,6 +27,7 @@ namespace CookingRecipeApi.Database
         public DbSet<View> views { get; set; }
         public DbSet<FoodPlace> foodPlaces { get; set; }
         public DbSet<SeasonalFood> seasonalFoods { get; set; }
+        public DbSet<Notification> notifications { get; set; }
 
         public static void UpdateDatabase(DatabaseContext context)
         {

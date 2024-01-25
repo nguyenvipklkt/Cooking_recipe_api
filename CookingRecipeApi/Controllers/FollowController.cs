@@ -16,9 +16,9 @@ namespace CookingRecipeApi.Controllers
     public class FollowController : BaseApiController<FollowController>
     {
         private readonly FollowService _followService;
-        public FollowController(DatabaseContext databaseContext, IMapper mapper, ApiOption apiConfig, IWebHostEnvironment webHost)
+        public FollowController(DatabaseContext databaseContext, IMapper mapper, ApiOption apiConfig, IWebHostEnvironment webHost, ConnectionManager connectionManager)
         {
-            _followService = new FollowService(apiConfig, databaseContext, mapper, webHost);
+            _followService = new FollowService(apiConfig, databaseContext, mapper, webHost, connectionManager);
         }
 
         [HttpGet]

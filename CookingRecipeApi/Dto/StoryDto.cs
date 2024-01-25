@@ -23,6 +23,7 @@ namespace CookingRecipeApi.Dto
         public int Meal { get; set; }
 
         public int LevelOfDifficult { get; set; }
+        public double reviewPoint { get; set; }
 
         public string Video { get; set; } = "";
         public string AuthorFirstName { get; set; }

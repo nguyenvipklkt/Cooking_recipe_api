@@ -16,9 +16,9 @@ namespace CookingRecipeApi.Controllers
     public class ReviewController : BaseApiController<ReviewController>
     {
         private readonly ReviewService _reviewService;
-        public ReviewController(DatabaseContext databaseContext, IMapper mapper, ApiOption apiConfig, IWebHostEnvironment webHost)
+        public ReviewController(DatabaseContext databaseContext, IMapper mapper, ApiOption apiConfig, IWebHostEnvironment webHost, ConnectionManager connectionManager)
         {
-            _reviewService = new ReviewService(apiConfig, databaseContext, mapper, webHost);
+            _reviewService = new ReviewService(apiConfig, databaseContext, mapper, webHost, connectionManager);
         }
 
         [HttpGet]

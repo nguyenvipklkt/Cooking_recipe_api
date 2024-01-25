@@ -2,6 +2,7 @@
 using BanVeXemPhimApi.Common;
 using CookingRecipeApi.Common;
 using CookingRecipeApi.Database;
+using CookingRecipeApi.Helpers.SocketHelper;
 using CookingRecipeApi.Models;
 using CookingRecipeApi.Repositories;
 using CookingRecipeApi.Request;
@@ -11,16 +12,18 @@ namespace CookingRecipeApi.Services
 {
     public class FollowService
     {
-        private readonly FollowRepository _followRepository;
+        private readonly FollowRepository _followRepository; 
+        private readonly NotificationRepository _notificationRepository;
         private readonly UserRepository _userRepository;
         private readonly ApiOption _apiOption;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHost;
 
-        public FollowService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost)
+        public FollowService(ApiOption apiOption, DatabaseContext databaseContext, IMapper mapper, IWebHostEnvironment webHost, ConnectionManager connectionManager)
         {
             _followRepository = new FollowRepository(apiOption, databaseContext, mapper);
             _userRepository = new UserRepository(apiOption, databaseContext, mapper);
+            _notificationRepository = new NotificationRepository(apiOption, databaseContext, mapper, connectionManager);
             _apiOption = apiOption;
             _mapper = mapper;
             _webHost = webHost;
@@ -76,6 +79,7 @@ namespace CookingRecipeApi.Services
                 newFollow.UserId = userId;
                 _followRepository.Create(newFollow);
                 _followRepository.SaveChange();
+                _notificationRepository.CreateNotification(request.FollowingUserId, userId, 0, 2);
                 return newFollow;
             }
             catch (Exception ex)
