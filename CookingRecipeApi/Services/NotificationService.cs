@@ -35,11 +35,17 @@ namespace CookingRecipeApi.Services
             try
             {
                 var notificationList = _notificationRepository.FindByCondition(row => row.UserId == userId).ToList();
+                if (notificationList == null || notificationList.Count == 0)
+                {
+                    return 0;
+                }
                 List<NotifyDto> notificationListDto = new List<NotifyDto>();
                 for (int i = 0; i < notificationList.Count(); i++)
                 {
                     if (notificationList[i].Type == 2)
                     {
+                        var reactingUser = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault();
+                        var food = _foodRepository.FindByCondition(row => notificationList[i].FoodId == row.Id).FirstOrDefault();
                         var notifyDto = new NotifyDto
                         {
                             Id = notificationList[i].Id,
@@ -48,10 +54,10 @@ namespace CookingRecipeApi.Services
                             FoodId = notificationList[i].FoodId,
                             Type = notificationList[i].Type,
                             Content = notificationList[i].Content,
-                            ReactingUserFirstName = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault().FirstName,
-                            ReactingUserLastName = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault().LastName,
-                            ReactingUserAvatar = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault().Avatar,
-                            FoodName = "",
+                            ReactingUserFirstName = reactingUser.FirstName,
+                            ReactingUserLastName = reactingUser.LastName,
+                            ReactingUserAvatar = reactingUser.Avatar,
+                            FoodName = food == null ? "" : food.Name,
                             CreatedDate = notificationList[i].CreatedDate,
                         };
                         notificationListDto.Add(notifyDto);
@@ -59,7 +65,13 @@ namespace CookingRecipeApi.Services
                     }
                     else
                     {
-                        var notifyDto = new NotifyDto
+                        var reactingUser = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault();
+                        var food = _foodRepository.FindByCondition(row => notificationList[i].FoodId == row.Id).FirstOrDefault();
+                        if (food == null)
+                        {
+                            continue;
+                        }
+                        var notifyDto1 = new NotifyDto
                         {
                             Id = notificationList[i].Id,
                             UserId = notificationList[i].UserId,
@@ -67,13 +79,13 @@ namespace CookingRecipeApi.Services
                             FoodId = notificationList[i].FoodId,
                             Type = notificationList[i].Type,
                             Content = notificationList[i].Content,
-                            ReactingUserFirstName = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault().FirstName,
-                            ReactingUserLastName = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault().LastName,
-                            ReactingUserAvatar = _userRepository.FindByCondition(row => notificationList[i].ReactingUserId == row.Id).FirstOrDefault().Avatar,
-                            FoodName = _foodRepository.FindByCondition(row => notificationList[i].FoodId == row.Id).FirstOrDefault().Name,
+                            ReactingUserFirstName = reactingUser.FirstName,
+                            ReactingUserLastName = reactingUser.LastName,
+                            ReactingUserAvatar = reactingUser.Avatar,
+                            FoodName = food == null ? "": food.Name,
                             CreatedDate = notificationList[i].CreatedDate,
                         };
-                        notificationListDto.Add(notifyDto);
+                        notificationListDto.Add(notifyDto1);
 
                     }
                 }
